@@ -1,6 +1,6 @@
 import './App.css';
 import logoUnillanos from './imagenes/logoUnillanos.png'
-import ListaDeTareas from './componentes/ListaDeTareas'
+import ListaDeTareas from './components/ListaDeTareas'
 
 function App() {
   return (
