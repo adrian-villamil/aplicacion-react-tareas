@@ -10,10 +10,14 @@ describe('Pruebas para el componente ListaDeTareas', () => {
     expect(listaDeTareas.container).toBeInTheDocument();
   });
 
-  test('Agregar tareas', () => {
-    render(<ListaDeTareas />);
+  test('Se comprueba que la tarea agregada sea la misma tarea renderizada en la lista', () => {
+    const { container } = render(<ListaDeTareas />);
 
     userEvent.type(screen.getByRole('textbox'), 'Comer bien');
     expect(screen.getByRole('textbox')).toHaveValue('Comer bien');
+    
+    userEvent.click(screen.getByRole('button'));
+    const textoContenedor = container.getElementsByClassName('tarea-texto')[0];
+    expect(textoContenedor.textContent.includes('Comer bien')).toBe(true);
   });
 });
