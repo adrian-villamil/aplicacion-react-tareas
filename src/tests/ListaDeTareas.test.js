@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 import ListaDeTareas from "../components/ListaDeTareas";
 
 describe('Pruebas para el componente ListaDeTareas', () => {
@@ -7,5 +8,12 @@ describe('Pruebas para el componente ListaDeTareas', () => {
     const listaDeTareas = render(<ListaDeTareas />);
 
     expect(listaDeTareas.container).toBeInTheDocument();
+  });
+
+  test('Agregar tareas', () => {
+    render(<ListaDeTareas />);
+
+    userEvent.type(screen.getByRole('textbox'), 'Comer bien');
+    expect(screen.getByRole('textbox')).toHaveValue('Comer bien');
   });
 });
