@@ -1,5 +1,5 @@
 import './App.css';
-import logoUnillanos from './imagenes/logoUnillanos.png'
+import logoUnillanos from './images/logoUnillanos.png'
 import ListaDeTareas from './components/ListaDeTareas'
 
 function App() {
